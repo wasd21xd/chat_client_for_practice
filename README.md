@@ -28,28 +28,7 @@
 
 - **Деплой (клиент):** https://chat-client-for-practice.vercel.app
 - **Сервер (WebSocket):** https://chat-client-for-practice.onrender.com
-- **Репозиторий:** https://github.com/wasd21xd/ВАШ_РЕП ← замени на свою ссылку
 
 ## Code Climate
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/REPLACE/maintainability)](https://codeclimate.com/github/wasd21xd/ВАШ_РЕП) ← замени после подключения
-
-## Как запустить локально
-
-**Сервер:**
-```bash
-cd server
-npm install
-npm start
-# WebSocket запустится на ws://localhost:8080
-```
-
-**Клиент** (в отдельном терминале):
-```bash
-cd client
-npm install
-npm start
-# Откроется http://localhost:3000
-```
-
-Для теста чата открой вторую вкладку в режиме инкогнито и войди под другим именем.
+[![Maintainability](https://qlty.sh/gh/wasd21xd/projects/chat_client_for_practice/maintainability.svg)](https://qlty.sh/gh/wasd21xd/projects/chat_client_for_practice)
