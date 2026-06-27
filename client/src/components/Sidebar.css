@@ -1,0 +1,98 @@
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #111;
+  border-right: 1px solid #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.sidebar-room {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #e0e0e0;
+  letter-spacing: -0.2px;
+}
+
+.sidebar-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px #22c55e99;
+}
+
+.sidebar-online {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #3d3d3d;
+  letter-spacing: 0.05em;
+}
+
+.user-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  transition: background 0.1s;
+}
+
+.user-item:hover {
+  background: #181818;
+}
+
+.user-me {
+  background: #161616;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.user-name {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 13px;
+  color: #bbb;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.user-you {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: #3d3d3d;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
