@@ -5,6 +5,10 @@
 Проект выбран из каталога: https://github.com/practical-tutorials/project-based-learning  
 Туториал: https://www.freecodecamp.org/news/how-to-build-a-chat-application-using-react-redux-redux-saga-and-web-sockets-47423e4bc21a
 
+## Демо
+
+![Demo](./2026-06-2923.28.07-ezgif.com-video-to-gif-converter.gif)
+
 ## Что реализовано
 
 - Ввод имени перед входом в чат
