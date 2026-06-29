@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setUsername } from '../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { authRequest } from '../store/actions';
 import './Login.css';
 
 export default function Login() {
-  const [name, setName] = useState('');
+  const [mode, setMode] = useState('login'); // 'login' | 'register'
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const authError = useSelector((s) => s.authError);
+  const connected = useSelector((s) => s.connected);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const trimmed = name.trim();
-    if (trimmed.length < 1) return;
-    dispatch(setUsername(trimmed));
+    if (!username.trim() || !password.trim()) return;
+    dispatch(authRequest(mode, username.trim(), password));
   };
 
   return (
@@ -20,19 +23,50 @@ export default function Login() {
         <div className="login-icon">💬</div>
         <h1 className="login-title">waveroom</h1>
         <p className="login-subtitle">real-time group chat</p>
+
+        <div className="login-tabs">
+          <button
+            className={`login-tab ${mode === 'login' ? 'login-tab--active' : ''}`}
+            onClick={() => setMode('login')}
+            type="button"
+          >
+            войти
+          </button>
+          <button
+            className={`login-tab ${mode === 'register' ? 'login-tab--active' : ''}`}
+            onClick={() => setMode('register')}
+            type="button"
+          >
+            регистрация
+          </button>
+        </div>
+
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             className="login-input"
             type="text"
-            placeholder="your name"
+            placeholder="имя пользователя"
             maxLength={20}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             autoFocus
             autoComplete="off"
           />
-          <button className="login-btn" type="submit" disabled={!name.trim()}>
-            join room →
+          <input
+            className="login-input"
+            type="password"
+            placeholder={mode === 'register' ? 'пароль (минимум 4 символа)' : 'пароль'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
+          />
+          {authError && <p className="login-error">{authError}</p>}
+          <button
+            className="login-btn"
+            type="submit"
+            disabled={!username.trim() || !password.trim() || !connected}
+          >
+            {!connected ? 'подключение...' : mode === 'login' ? 'войти →' : 'создать аккаунт →'}
           </button>
         </form>
       </div>
